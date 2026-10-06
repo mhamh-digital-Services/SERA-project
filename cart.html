@@ -1,0 +1,1987 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+
+
+<head>
+
+
+
+    <meta charset="UTF-8">
+
+
+
+    <meta
+
+        name="viewport"
+
+        content="width=device-width, initial-scale=1.0"
+
+    >
+
+
+
+    <title>SERA — السلة</title>
+
+
+
+    <link
+
+        rel="preconnect"
+
+        href="https://fonts.googleapis.com"
+
+    >
+
+
+
+    <link
+
+        rel="preconnect"
+
+        href="https://fonts.gstatic.com"
+
+        crossorigin
+
+    >
+
+
+
+    <link
+
+        href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600&display=swap"
+
+        rel="stylesheet"
+
+    >
+
+
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+
+
+
+
+    <style>
+
+
+
+        :root {
+
+
+
+            --black: #080808;
+
+            --black-soft: #111111;
+
+
+
+            --ivory: #f3eee5;
+
+
+
+            --muted: #9b978f;
+
+
+
+            --gold: #a88a52;
+
+            --gold-light: #c9ae72;
+
+
+
+            --line: rgba(243,238,229,.14);
+
+
+
+            --font: "Alexandria", sans-serif;
+
+
+
+        }
+
+
+
+
+
+        * {
+
+
+
+            margin: 0;
+
+            padding: 0;
+
+
+
+            box-sizing: border-box;
+
+
+
+            font-family: var(--font);
+
+
+
+        }
+
+
+
+
+
+        body {
+
+
+
+            background: var(--black);
+
+
+
+            color: var(--ivory);
+
+
+
+            min-height: 100vh;
+
+
+
+        }
+
+
+
+
+
+        a {
+
+
+
+            color: inherit;
+
+
+
+            text-decoration: none;
+
+
+
+        }
+
+
+
+
+
+        button {
+
+
+
+            font-family: var(--font);
+
+
+
+        }
+
+
+
+
+
+        /* =========================
+
+           HEADER
+
+        ========================= */
+
+
+
+        .header {
+
+
+
+            height: 90px;
+
+
+
+            padding: 0 7vw;
+
+
+
+            display: flex;
+
+
+
+            align-items: center;
+
+
+
+            justify-content: space-between;
+
+
+
+            border-bottom: 1px solid var(--line);
+
+
+
+        }
+
+
+
+
+
+        .brand {
+
+
+
+            font-size: 23px;
+
+
+
+            letter-spacing: 5px;
+
+
+
+        }
+
+
+
+
+
+        .back {
+
+
+
+            display: flex;
+
+
+
+            align-items: center;
+
+
+
+            gap: 10px;
+
+
+
+            color: var(--muted);
+
+
+
+            font-size: 11px;
+
+
+
+            transition: .3s ease;
+
+
+
+        }
+
+
+
+
+
+        .back:hover {
+
+
+
+            color: var(--ivory);
+
+
+
+        }
+
+
+
+
+
+        .back i {
+
+
+
+            width: 15px;
+
+
+
+        }
+
+
+
+
+
+        /* =========================
+
+           MAIN
+
+        ========================= */
+
+
+
+        .cart-page {
+
+
+
+            padding: 100px 7vw;
+
+
+
+            max-width: 1400px;
+
+
+
+            margin: auto;
+
+
+
+        }
+
+
+
+
+
+        .page-number {
+
+
+
+            color: var(--gold-light);
+
+
+
+            font-size: 10px;
+
+
+
+            letter-spacing: 3px;
+
+
+
+            margin-bottom: 22px;
+
+
+
+        }
+
+
+
+
+
+        h1 {
+
+
+
+            font-size: clamp(38px, 5vw, 65px);
+
+
+
+            font-weight: 400;
+
+
+
+            margin-bottom: 65px;
+
+
+
+        }
+
+
+
+
+
+        /* =========================
+
+           EMPTY
+
+        ========================= */
+
+
+
+        .empty {
+
+
+
+            min-height: 45vh;
+
+
+
+            display: flex;
+
+
+
+            flex-direction: column;
+
+
+
+            align-items: center;
+
+
+
+            justify-content: center;
+
+
+
+            text-align: center;
+
+
+
+            border-top: 1px solid var(--line);
+
+
+
+        }
+
+
+
+
+
+        .empty i {
+
+
+
+            width: 40px;
+
+
+
+            height: 40px;
+
+
+
+            color: var(--gold-light);
+
+
+
+            margin-bottom: 25px;
+
+
+
+        }
+
+
+
+
+
+        .empty h2 {
+
+
+
+            font-size: 24px;
+
+
+
+            font-weight: 400;
+
+
+
+        }
+
+
+
+
+
+        .empty p {
+
+
+
+            color: var(--muted);
+
+
+
+            font-size: 11px;
+
+
+
+            margin-top: 15px;
+
+
+
+        }
+
+
+
+
+
+        .empty a {
+
+
+
+            margin-top: 30px;
+
+
+
+            border-bottom: 1px solid var(--gold);
+
+
+
+            padding-bottom: 10px;
+
+
+
+            font-size: 11px;
+
+
+
+        }
+
+
+
+
+
+        /* =========================
+
+           CART
+
+        ========================= */
+
+
+
+        .cart-layout {
+
+
+
+            display: grid;
+
+
+
+            grid-template-columns: 1.5fr .7fr;
+
+
+
+            gap: 70px;
+
+
+
+        }
+
+
+
+
+
+        .cart-items {
+
+
+
+            border-top: 1px solid var(--line);
+
+
+
+        }
+
+
+
+
+
+        .cart-item {
+
+
+
+            display: grid;
+
+
+
+            grid-template-columns: 130px 1fr auto;
+
+
+
+            gap: 25px;
+
+
+
+            align-items: center;
+
+
+
+            padding: 25px 0;
+
+
+
+            border-bottom: 1px solid var(--line);
+
+
+
+        }
+
+
+
+
+
+        .cart-image {
+
+
+
+            width: 130px;
+
+
+
+            height: 160px;
+
+
+
+            overflow: hidden;
+
+
+
+        }
+
+
+
+
+
+        .cart-image img {
+
+
+
+            width: 100%;
+
+
+
+            height: 100%;
+
+
+
+            object-fit: cover;
+
+
+
+        }
+
+
+
+
+
+        .item-name {
+
+
+
+            font-size: 15px;
+
+
+
+            margin-bottom: 10px;
+
+
+
+        }
+
+
+
+
+
+        .item-type {
+
+
+
+            color: var(--muted);
+
+
+
+            font-size: 10px;
+
+
+
+        }
+
+
+
+
+
+        .item-price {
+
+
+
+            color: var(--gold-light);
+
+
+
+            font-size: 11px;
+
+
+
+            margin-top: 18px;
+
+
+
+        }
+
+
+
+
+
+        .quantity {
+
+
+
+            display: flex;
+
+
+
+            align-items: center;
+
+
+
+            gap: 15px;
+
+
+
+            margin-top: 22px;
+
+
+
+        }
+
+
+
+
+
+        .quantity button {
+
+
+
+            width: 28px;
+
+
+
+            height: 28px;
+
+
+
+            border: 1px solid var(--line);
+
+
+
+            background: transparent;
+
+
+
+            color: var(--ivory);
+
+
+
+            cursor: pointer;
+
+
+
+        }
+
+
+
+
+
+        .quantity span {
+
+
+
+            font-size: 11px;
+
+
+
+        }
+
+
+
+
+
+        .remove {
+
+
+
+            margin-top: 20px;
+
+
+
+            border: 0;
+
+
+
+            background: transparent;
+
+
+
+            color: #777;
+
+
+
+            font-size: 9px;
+
+
+
+            cursor: pointer;
+
+
+
+        }
+
+
+
+
+
+        .remove:hover {
+
+
+
+            color: var(--ivory);
+
+
+
+        }
+
+
+
+
+
+        /* =========================
+
+           SUMMARY
+
+        ========================= */
+
+
+
+        .summary {
+
+
+
+            background: var(--black-soft);
+
+
+
+            padding: 35px;
+
+
+
+            height: fit-content;
+
+
+
+            position: sticky;
+
+
+
+            top: 30px;
+
+
+
+        }
+
+
+
+
+
+        .summary h2 {
+
+
+
+            font-size: 18px;
+
+
+
+            font-weight: 400;
+
+
+
+            padding-bottom: 25px;
+
+
+
+            border-bottom: 1px solid var(--line);
+
+
+
+        }
+
+
+
+
+
+        .summary-row {
+
+
+
+            display: flex;
+
+
+
+            justify-content: space-between;
+
+
+
+            padding: 20px 0;
+
+
+
+            font-size: 11px;
+
+
+
+            color: var(--muted);
+
+
+
+        }
+
+
+
+
+
+        .summary-row.total {
+
+
+
+            border-top: 1px solid var(--line);
+
+
+
+            color: var(--ivory);
+
+
+
+            font-size: 14px;
+
+
+
+        }
+
+
+
+
+
+        .summary-total {
+
+
+
+            color: var(--gold-light);
+
+
+
+        }
+
+
+
+
+
+        .checkout {
+
+
+
+            width: 100%;
+
+
+
+            border: 1px solid var(--gold);
+
+
+
+            background: var(--gold);
+
+
+
+            color: #080808;
+
+
+
+            padding: 17px;
+
+
+
+            cursor: pointer;
+
+
+
+            font-size: 11px;
+
+
+
+            transition: .3s ease;
+
+
+
+        }
+
+
+
+
+
+        .checkout:hover {
+
+
+
+            background: var(--gold-light);
+
+
+
+            border-color: var(--gold-light);
+
+
+
+        }
+
+
+
+
+
+        .continue {
+
+
+
+            display: block;
+
+
+
+            text-align: center;
+
+
+
+            margin-top: 22px;
+
+
+
+            color: var(--muted);
+
+
+
+            font-size: 10px;
+
+
+
+        }
+
+
+
+
+
+        /* =========================
+
+           MOBILE
+
+        ========================= */
+
+
+
+        @media (max-width: 800px) {
+
+
+
+            .cart-page {
+
+
+
+                padding: 70px 6vw;
+
+
+
+            }
+
+
+
+
+
+            .cart-layout {
+
+
+
+                grid-template-columns: 1fr;
+
+
+
+                gap: 45px;
+
+
+
+            }
+
+
+
+
+
+            .summary {
+
+
+
+                position: static;
+
+
+
+            }
+
+
+
+
+
+            .cart-item {
+
+
+
+                grid-template-columns: 90px 1fr;
+
+
+
+            }
+
+
+
+
+
+            .cart-image {
+
+
+
+                width: 90px;
+
+
+
+                height: 115px;
+
+
+
+            }
+
+
+
+
+
+            .item-actions {
+
+
+
+                grid-column: 2;
+
+
+
+            }
+
+
+
+        }
+
+
+
+
+
+        @media (max-width: 500px) {
+
+
+
+            .header {
+
+
+
+                height: 75px;
+
+
+
+                padding: 0 5vw;
+
+
+
+            }
+
+
+
+
+
+            .brand {
+
+
+
+                font-size: 19px;
+
+
+
+            }
+
+
+
+
+
+            .cart-page {
+
+
+
+                padding-top: 55px;
+
+
+
+            }
+
+
+
+
+
+            h1 {
+
+
+
+                margin-bottom: 45px;
+
+
+
+            }
+
+
+
+
+
+            .summary {
+
+
+
+                padding: 25px;
+
+
+
+            }
+
+
+
+        }
+
+
+
+    </style>
+
+
+
+</head>
+
+
+
+
+
+<body>
+
+
+
+
+
+    <!-- HEADER -->
+
+
+
+    <header class="header">
+
+
+
+        <a href="index.html" class="brand">
+
+            SERA
+
+        </a>
+
+
+
+
+
+        <a href="index.html" class="back">
+
+
+
+            العودة للمتجر
+
+
+
+            <i data-lucide="arrow-left"></i>
+
+
+
+        </a>
+
+
+
+    </header>
+
+
+
+
+
+    <!-- MAIN -->
+
+
+
+    <main class="cart-page">
+
+
+
+        <div class="page-number">
+
+            SERA / CART
+
+        </div>
+
+
+
+
+
+        <h1>
+
+            السلة
+
+        </h1>
+
+
+
+
+
+        <!-- EMPTY -->
+
+
+
+        <div
+
+            class="empty"
+
+            id="emptyCart"
+
+            style="display:none;"
+
+        >
+
+
+
+            <i data-lucide="shopping-bag"></i>
+
+
+
+            <h2>
+
+                سلتك فارغة
+
+            </h2>
+
+
+
+            <p>
+
+                اختاري عطرك المفضل وابدئي رحلتك مع SERA.
+
+            </p>
+
+
+
+            <a href="index.html">
+
+                اكتشف المجموعة
+
+            </a>
+
+
+
+        </div>
+
+
+
+
+
+        <!-- CART -->
+
+
+
+        <div
+
+            class="cart-layout"
+
+            id="cartContent"
+
+            style="display:none;"
+
+        >
+
+
+
+
+
+            <div class="cart-items" id="cartItems"></div>
+
+
+
+
+
+            <aside class="summary">
+
+
+
+                <h2>
+
+                    ملخص الطلب
+
+                </h2>
+
+
+
+
+
+                <div class="summary-row">
+
+
+
+                    <span>
+
+                        المنتجات
+
+                    </span>
+
+
+
+                    <span id="subtotal">
+
+                        0 SAR
+
+                    </span>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="summary-row">
+
+
+
+                    <span>
+
+                        الشحن
+
+                    </span>
+
+
+
+                    <span>
+
+                        يُحسب لاحقًا
+
+                    </span>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="summary-row total">
+
+
+
+                    <span>
+
+                        الإجمالي
+
+                    </span>
+
+
+
+                    <span
+
+                        class="summary-total"
+
+                        id="total"
+
+                    >
+
+                        0 SAR
+
+                    </span>
+
+
+
+                </div>
+
+
+
+
+
+                <button
+
+                    class="checkout"
+
+                    onclick="goToCheckout()"
+
+                >
+
+                    إتمام الطلب
+
+                </button>
+
+
+
+
+
+                <a
+
+                    href="index.html"
+
+                    class="continue"
+
+                >
+
+                    متابعة التسوق
+
+                </a>
+
+
+
+            </aside>
+
+
+
+        </div>
+
+
+
+    </main>
+
+
+
+
+
+    <script>
+
+
+
+        lucide.createIcons();
+
+
+
+
+
+        /* =========================
+
+           CART
+
+        ========================= */
+
+
+
+        const CART_KEY = "sera_cart";
+
+
+
+
+
+        function getCart() {
+
+            try {
+
+                const cart =
+                    JSON.parse(localStorage.getItem(CART_KEY)) || [];
+
+                return cart
+                    .map(item => ({
+                        ...item,
+                        price:
+                            Number(item.price) ||
+                            parseFloat(
+                                String(item.price).replace(/[^\d.]/g, "")
+                            ) ||
+                            0,
+                        quantity:
+                            Math.max(
+                                1,
+                                Math.floor(Number(item.quantity) || 1)
+                            )
+                    }))
+                    .filter(item => item.price > 0);
+
+            } catch {
+
+                return [];
+
+            }
+
+        }
+
+
+        function saveCart(cart) {
+
+
+
+            localStorage.setItem(
+
+                CART_KEY,
+
+                JSON.stringify(cart)
+
+            );
+
+
+
+        }
+
+
+
+
+
+        function renderCart() {
+
+
+
+            const cart = getCart();
+
+
+
+            const empty =
+
+                document.getElementById("emptyCart");
+
+
+
+            const content =
+
+                document.getElementById("cartContent");
+
+
+
+            const items =
+
+                document.getElementById("cartItems");
+
+
+
+
+
+            if (cart.length === 0) {
+
+
+
+                empty.style.display = "flex";
+
+
+
+                content.style.display = "none";
+
+
+
+                lucide.createIcons();
+
+
+
+                return;
+
+
+
+            }
+
+
+
+
+
+            empty.style.display = "none";
+
+
+
+            content.style.display = "grid";
+
+
+
+
+
+            items.innerHTML = "";
+
+
+
+
+
+            let total = 0;
+
+
+
+
+
+            cart.forEach((item, index) => {
+
+
+
+                const itemTotal =
+
+                    item.price * item.quantity;
+
+
+
+                total += itemTotal;
+
+
+
+
+
+                items.innerHTML += `
+
+
+
+                    <div class="cart-item">
+
+
+
+                        <div class="cart-image">
+
+
+
+                            <img
+
+                                src="${item.image}"
+
+                                alt="${item.name}"
+
+                            >
+
+
+
+                        </div>
+
+
+
+
+
+                        <div>
+
+
+
+                            <div class="item-name">
+
+                                ${item.name}
+
+                            </div>
+
+
+
+                            <div class="item-type">
+
+                                ${item.type || "Eau de Parfum"}
+
+                            </div>
+
+
+
+                            <div class="item-price">
+
+                                ${item.price} SAR
+
+                            </div>
+
+
+
+
+
+                            <div class="quantity">
+
+
+
+                                <button
+
+                                    onclick="changeQuantity(${index}, -1)"
+
+                                >
+
+                                    −
+
+                                </button>
+
+
+
+                                <span>
+
+                                    ${item.quantity}
+
+                                </span>
+
+
+
+                                <button
+
+                                    onclick="changeQuantity(${index}, 1)"
+
+                                >
+
+                                    +
+
+                                </button>
+
+
+
+                            </div>
+
+
+
+                        </div>
+
+
+
+
+
+                        <div class="item-actions">
+
+
+
+                            <button
+
+                                class="remove"
+
+                                onclick="removeItem(${index})"
+
+                            >
+
+                                حذف المنتج
+
+                            </button>
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                `;
+
+
+
+            });
+
+
+
+
+
+            document.getElementById("subtotal")
+
+                .textContent = `${total} SAR`;
+
+
+
+            document.getElementById("total")
+
+                .textContent = `${total} SAR`;
+
+
+
+
+
+            lucide.createIcons();
+
+
+
+        }
+
+
+
+
+
+        /* =========================
+
+           QUANTITY
+
+        ========================= */
+
+
+
+        function changeQuantity(index, change) {
+
+
+
+            const cart = getCart();
+
+
+
+            cart[index].quantity += change;
+
+
+
+
+
+            if (cart[index].quantity <= 0) {
+
+
+
+                cart.splice(index, 1);
+
+
+
+            }
+
+
+
+
+
+            saveCart(cart);
+
+
+
+            renderCart();
+
+
+
+        }
+
+
+
+
+
+        /* =========================
+
+           REMOVE
+
+        ========================= */
+
+
+
+        function removeItem(index) {
+
+
+
+            const cart = getCart();
+
+
+
+            cart.splice(index, 1);
+
+
+
+            saveCart(cart);
+
+
+
+            renderCart();
+
+
+
+        }
+
+
+
+
+
+        /* =========================
+
+           CHECKOUT
+
+        ========================= */
+
+
+
+        function goToCheckout() {
+
+            const cart = getCart();
+
+            if (!cart.length) {
+
+                return;
+
+            }
+
+            window.location.href = "checkout.html";
+
+        }
+
+
+        renderCart();
+
+
+
+    </script>
+
+
+
+</body>
+
+
+
+</html>

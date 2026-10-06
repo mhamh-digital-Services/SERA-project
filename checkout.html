@@ -1,0 +1,2590 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+
+
+<head>
+
+
+
+    <meta charset="UTF-8">
+
+
+
+    <meta
+
+        name="viewport"
+
+        content="width=device-width, initial-scale=1.0"
+
+    >
+
+
+
+    <title>SERA — إتمام الطلب</title>
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+
+
+    <link
+
+        rel="preconnect"
+
+        href="https://fonts.gstatic.com"
+
+        crossorigin
+
+    >
+
+
+
+    <link
+
+        href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600&display=swap"
+
+        rel="stylesheet"
+
+    >
+
+
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+
+
+
+
+    <style>
+
+
+
+        :root {
+
+
+
+            --black: #080808;
+
+            --black-soft: #111111;
+
+
+
+            --ivory: #f3eee5;
+
+
+
+            --muted: #9b978f;
+
+
+
+            --gold: #a88a52;
+
+            --gold-light: #c9ae72;
+
+
+
+            --line: rgba(243,238,229,.14);
+
+
+
+            --font: "Alexandria", sans-serif;
+
+
+
+        }
+
+
+
+
+
+        * {
+
+
+
+            margin: 0;
+
+            padding: 0;
+
+
+
+            box-sizing: border-box;
+
+
+
+            font-family: var(--font);
+
+
+
+        }
+
+
+
+
+
+        body {
+
+
+
+            background: var(--black);
+
+
+
+            color: var(--ivory);
+
+
+
+            min-height: 100vh;
+
+
+
+        }
+
+
+
+
+
+        a {
+
+
+
+            color: inherit;
+
+
+
+            text-decoration: none;
+
+
+
+        }
+
+
+
+
+
+        input,
+
+        textarea,
+
+        select,
+
+        button {
+
+
+
+            font-family: var(--font);
+
+
+
+        }
+
+
+
+
+
+        /* =========================
+
+           HEADER
+
+        ========================= */
+
+
+
+        .header {
+
+
+
+            height: 90px;
+
+
+
+            padding: 0 7vw;
+
+
+
+            display: flex;
+
+
+
+            align-items: center;
+
+
+
+            justify-content: space-between;
+
+
+
+            border-bottom: 1px solid var(--line);
+
+
+
+        }
+
+
+
+
+
+        .brand {
+
+
+
+            font-size: 23px;
+
+
+
+            letter-spacing: 5px;
+
+
+
+        }
+
+
+
+
+
+        .back {
+
+
+
+            display: flex;
+
+
+
+            align-items: center;
+
+
+
+            gap: 10px;
+
+
+
+            color: var(--muted);
+
+
+
+            font-size: 11px;
+
+
+
+        }
+
+
+
+
+
+        .back i {
+
+
+
+            width: 15px;
+
+
+
+        }
+
+
+
+
+
+        /* =========================
+
+           PAGE
+
+        ========================= */
+
+
+
+        .page {
+
+
+
+            max-width: 1350px;
+
+
+
+            margin: auto;
+
+
+
+            padding: 90px 7vw 120px;
+
+
+
+        }
+
+
+
+
+
+        .page-number {
+
+
+
+            color: var(--gold-light);
+
+
+
+            font-size: 10px;
+
+
+
+            letter-spacing: 3px;
+
+
+
+            margin-bottom: 22px;
+
+
+
+        }
+
+
+
+
+
+        h1 {
+
+
+
+            font-size: clamp(38px, 5vw, 65px);
+
+
+
+            font-weight: 400;
+
+
+
+            margin-bottom: 65px;
+
+
+
+        }
+
+
+
+
+
+        .checkout-layout {
+
+
+
+            display: grid;
+
+
+
+            grid-template-columns: 1.2fr .75fr;
+
+
+
+            gap: 70px;
+
+
+
+        }
+
+
+
+
+
+        /* =========================
+
+           FORM
+
+        ========================= */
+
+
+
+        .form-section {
+
+
+
+            border-top: 1px solid var(--line);
+
+
+
+        }
+
+
+
+
+
+        .section-title {
+
+
+
+            font-size: 18px;
+
+
+
+            font-weight: 400;
+
+
+
+            padding: 28px 0;
+
+
+
+            border-bottom: 1px solid var(--line);
+
+
+
+        }
+
+
+
+
+
+        .form-grid {
+
+
+
+            display: grid;
+
+
+
+            grid-template-columns: 1fr 1fr;
+
+
+
+            gap: 25px;
+
+
+
+            padding-top: 30px;
+
+
+
+        }
+
+
+
+
+
+        .field {
+
+
+
+            display: flex;
+
+
+
+            flex-direction: column;
+
+
+
+            gap: 10px;
+
+
+
+        }
+
+
+
+
+
+        .field.full {
+
+
+
+            grid-column: 1 / -1;
+
+
+
+        }
+
+
+
+
+
+        .field label {
+
+
+
+            color: var(--muted);
+
+
+
+            font-size: 10px;
+
+
+
+        }
+
+
+
+
+
+        .field input,
+
+        .field textarea,
+
+        .field select {
+
+
+
+            width: 100%;
+
+
+
+            background: transparent;
+
+
+
+            border: 1px solid var(--line);
+
+
+
+            color: var(--ivory);
+
+
+
+            padding: 15px;
+
+
+
+            outline: none;
+
+
+
+            font-size: 11px;
+
+
+
+            transition: border .3s ease;
+
+
+
+        }
+
+
+
+
+
+        .field input:focus,
+
+        .field textarea:focus,
+
+        .field select:focus {
+
+
+
+            border-color: var(--gold);
+
+
+
+        }
+
+
+
+
+
+        .field textarea {
+
+
+
+            min-height: 110px;
+
+
+
+            resize: vertical;
+
+
+
+        }
+
+
+
+
+
+        .field select option {
+
+
+
+            background: #111;
+
+
+
+            color: var(--ivory);
+
+
+
+        }
+
+
+
+
+
+        .required {
+
+
+
+            color: var(--gold-light);
+
+
+
+        }
+
+
+
+
+
+        /* =========================
+
+           ORDER SUMMARY
+
+        ========================= */
+
+
+
+        .order-summary {
+
+
+
+            background: var(--black-soft);
+
+
+
+            padding: 35px;
+
+
+
+            height: fit-content;
+
+
+
+            position: sticky;
+
+
+
+            top: 30px;
+
+
+
+        }
+
+
+
+
+
+        .order-summary h2 {
+
+
+
+            font-size: 18px;
+
+
+
+            font-weight: 400;
+
+
+
+            padding-bottom: 25px;
+
+
+
+            border-bottom: 1px solid var(--line);
+
+
+
+        }
+
+
+
+
+
+        .order-items {
+
+
+
+            max-height: 350px;
+
+
+
+            overflow-y: auto;
+
+
+
+        }
+
+
+
+
+
+        .order-item {
+
+
+
+            display: flex;
+
+
+
+            align-items: center;
+
+
+
+            gap: 15px;
+
+
+
+            padding: 18px 0;
+
+
+
+            border-bottom: 1px solid var(--line);
+
+
+
+        }
+
+
+
+
+
+        .order-image {
+
+
+
+            width: 65px;
+
+
+
+            height: 80px;
+
+
+
+            flex-shrink: 0;
+
+
+
+            overflow: hidden;
+
+
+
+        }
+
+
+
+
+
+        .order-image img {
+
+
+
+            width: 100%;
+
+
+
+            height: 100%;
+
+
+
+            object-fit: cover;
+
+
+
+        }
+
+
+
+
+
+        .order-info {
+
+
+
+            flex: 1;
+
+
+
+        }
+
+
+
+
+
+        .order-name {
+
+
+
+            font-size: 11px;
+
+
+
+        }
+
+
+
+
+
+        .order-quantity {
+
+
+
+            color: var(--muted);
+
+
+
+            font-size: 9px;
+
+
+
+            margin-top: 7px;
+
+
+
+        }
+
+
+
+
+
+        .order-price {
+
+
+
+            color: var(--gold-light);
+
+
+
+            font-size: 10px;
+
+
+
+        }
+
+
+
+
+
+        .summary-row {
+
+
+
+            display: flex;
+
+
+
+            justify-content: space-between;
+
+
+
+            padding: 18px 0;
+
+
+
+            color: var(--muted);
+
+
+
+            font-size: 10px;
+
+
+
+        }
+
+
+
+
+
+        .summary-row.total {
+
+
+
+            border-top: 1px solid var(--line);
+
+
+
+            color: var(--ivory);
+
+
+
+            font-size: 14px;
+
+
+
+        }
+
+
+
+
+
+        .total-price {
+
+
+
+            color: var(--gold-light);
+
+
+
+        }
+
+
+
+
+
+        /* =========================
+
+           PAYMENT NOTE
+
+        ========================= */
+
+
+
+        .payment-box {
+
+
+
+            margin-top: 25px;
+
+
+
+            padding: 18px;
+
+
+
+            border: 1px solid var(--line);
+
+
+
+            color: var(--muted);
+
+
+
+            font-size: 9px;
+
+
+
+            line-height: 2;
+
+
+
+        }
+
+
+
+
+
+        .payment-box strong {
+
+
+
+            display: block;
+
+
+
+            color: var(--ivory);
+
+
+
+            font-size: 10px;
+
+
+
+            margin-bottom: 5px;
+
+
+
+        }
+
+
+
+
+
+        /* =========================
+
+           SUBMIT
+
+        ========================= */
+
+
+
+        .submit-btn {
+
+
+
+            width: 100%;
+
+
+
+            margin-top: 25px;
+
+
+
+            padding: 17px;
+
+
+
+            border: 1px solid var(--gold);
+
+
+
+            background: var(--gold);
+
+
+
+            color: #080808;
+
+
+
+            cursor: pointer;
+
+
+
+            font-size: 11px;
+
+
+
+            transition: .3s ease;
+
+
+
+        }
+
+
+
+
+
+        .submit-btn:hover {
+
+
+
+            background: var(--gold-light);
+
+
+
+            border-color: var(--gold-light);
+
+
+
+        }
+
+
+
+
+
+        .submit-btn:disabled {
+
+
+
+            opacity: .5;
+
+
+
+            cursor: not-allowed;
+
+
+
+        }
+
+
+
+
+
+        .back-cart {
+
+
+
+            display: block;
+
+
+
+            text-align: center;
+
+
+
+            margin-top: 20px;
+
+
+
+            color: var(--muted);
+
+
+
+            font-size: 9px;
+
+
+
+        }
+
+
+
+
+
+        /* =========================
+
+           SUCCESS
+
+        ========================= */
+
+
+
+        .success {
+
+
+
+            min-height: 55vh;
+
+
+
+            display: flex;
+
+
+
+            flex-direction: column;
+
+
+
+            align-items: center;
+
+
+
+            justify-content: center;
+
+
+
+            text-align: center;
+
+
+
+            border-top: 1px solid var(--line);
+
+
+
+        }
+
+
+
+
+
+        .success-icon {
+
+
+
+            width: 55px;
+
+
+
+            height: 55px;
+
+
+
+            border: 1px solid var(--gold);
+
+
+
+            border-radius: 50%;
+
+
+
+            display: flex;
+
+
+
+            align-items: center;
+
+
+
+            justify-content: center;
+
+
+
+            margin-bottom: 25px;
+
+
+
+        }
+
+
+
+
+
+        .success-icon i {
+
+
+
+            color: var(--gold-light);
+
+
+
+        }
+
+
+
+
+
+        .success h2 {
+
+
+
+            font-size: 25px;
+
+
+
+            font-weight: 400;
+
+
+
+        }
+
+
+
+
+
+        .success p {
+
+
+
+            max-width: 450px;
+
+
+
+            color: var(--muted);
+
+
+
+            font-size: 11px;
+
+
+
+            line-height: 2;
+
+
+
+            margin-top: 15px;
+
+
+
+        }
+
+
+
+
+
+        .order-number {
+
+
+
+            margin-top: 25px;
+
+
+
+            color: var(--gold-light);
+
+
+
+            font-size: 11px;
+
+
+
+        }
+
+
+
+
+
+        .success a {
+
+
+
+            margin-top: 30px;
+
+
+
+            border-bottom: 1px solid var(--gold);
+
+
+
+            padding-bottom: 10px;
+
+
+
+            font-size: 10px;
+
+
+
+        }
+
+
+
+
+
+        /* =========================
+
+           MOBILE
+
+        ========================= */
+
+
+
+        @media (max-width: 850px) {
+
+
+
+            .page {
+
+
+
+                padding: 65px 6vw 90px;
+
+
+
+            }
+
+
+
+
+
+            .checkout-layout {
+
+
+
+                grid-template-columns: 1fr;
+
+
+
+                gap: 45px;
+
+
+
+            }
+
+
+
+
+
+            .order-summary {
+
+
+
+                position: static;
+
+
+
+            }
+
+
+
+        }
+
+
+
+
+
+        @media (max-width: 550px) {
+
+
+
+            .header {
+
+
+
+                height: 75px;
+
+
+
+                padding: 0 5vw;
+
+
+
+            }
+
+
+
+
+
+            .brand {
+
+
+
+                font-size: 19px;
+
+
+
+            }
+
+
+
+
+
+            .form-grid {
+
+
+
+                grid-template-columns: 1fr;
+
+
+
+            }
+
+
+
+
+
+            .field.full {
+
+
+
+                grid-column: auto;
+
+
+
+            }
+
+
+
+
+
+            .order-summary {
+
+
+
+                padding: 25px;
+
+
+
+            }
+
+
+
+        }
+
+
+
+    </style>
+
+
+
+</head>
+
+
+
+
+
+<body>
+
+
+
+
+
+    <!-- HEADER -->
+
+
+
+    <header class="header">
+
+
+
+        <a href="index.html" class="brand">
+
+            SERA
+
+        </a>
+
+
+
+
+
+        <a href="cart.html" class="back">
+
+
+
+            العودة للسلة
+
+
+
+            <i data-lucide="arrow-left"></i>
+
+
+
+        </a>
+
+
+
+    </header>
+
+
+
+
+
+    <!-- PAGE -->
+
+
+
+    <main class="page" id="checkoutPage">
+
+
+
+        <div class="page-number">
+
+            SERA / CHECKOUT
+
+        </div>
+
+
+
+
+
+        <h1>
+
+            إتمام الطلب
+
+        </h1>
+
+
+
+
+
+        <div class="checkout-layout">
+
+
+
+
+
+            <!-- FORM -->
+
+
+
+            <section class="form-section">
+
+
+
+                <h2 class="section-title">
+
+                    بيانات التوصيل
+
+                </h2>
+
+
+
+
+
+                <form
+
+                    id="checkoutForm"
+
+                    class="form-grid"
+
+                >
+
+
+
+
+
+                    <div class="field">
+
+
+
+                        <label>
+
+                            الاسم الكامل
+
+                            <span class="required">*</span>
+
+                        </label>
+
+
+
+                        <input
+
+                            type="text"
+
+                            id="fullName"
+
+                            required
+
+                            placeholder="الاسم الكامل"
+
+                        >
+
+
+
+                    </div>
+
+
+
+
+
+                    <div class="field">
+
+
+
+                        <label>
+
+                            رقم الجوال
+
+                            <span class="required">*</span>
+
+                        </label>
+
+
+
+                        <input
+
+                            type="tel"
+
+                            id="phone"
+
+                            required
+
+                            placeholder="05xxxxxxxx"
+
+                            inputmode="tel"
+
+                        >
+
+
+
+                    </div>
+
+
+
+
+
+                    <div class="field">
+
+
+
+                        <label>
+
+                            المدينة
+
+                            <span class="required">*</span>
+
+                        </label>
+
+
+
+                        <select
+
+                            id="city"
+
+                            required
+
+                        >
+
+
+
+                            <option value="">
+
+                                اختاري المدينة
+
+                            </option>
+
+
+
+                            <option>
+
+                                الرياض
+
+                            </option>
+
+
+
+                            <option>
+
+                                جدة
+
+                            </option>
+
+
+
+                            <option>
+
+                                مكة المكرمة
+
+                            </option>
+
+
+
+                            <option>
+
+                                المدينة المنورة
+
+                            </option>
+
+
+
+                            <option>
+
+                                الدمام
+
+                            </option>
+
+
+
+                            <option>
+
+                                الخبر
+
+                            </option>
+
+
+
+                            <option>
+
+                                الظهران
+
+                            </option>
+
+
+
+                            <option>
+
+                                أبها
+
+                            </option>
+
+
+
+                            <option>
+
+                                تبوك
+
+                            </option>
+
+
+
+                            <option>
+
+                                أخرى
+
+                            </option>
+
+
+
+                        </select>
+
+
+
+                    </div>
+
+
+
+
+
+                    <div class="field">
+
+
+
+                        <label>
+
+                            الحي
+
+                            <span class="required">*</span>
+
+                        </label>
+
+
+
+                        <input
+
+                            type="text"
+
+                            id="district"
+
+                            required
+
+                            placeholder="اسم الحي"
+
+                        >
+
+
+
+                    </div>
+
+
+
+
+
+                    <div class="field full">
+
+
+
+                        <label>
+
+                            العنوان بالتفصيل
+
+                            <span class="required">*</span>
+
+                        </label>
+
+
+
+                        <textarea
+
+                            id="address"
+
+                            required
+
+                            placeholder="اسم الشارع، رقم المبنى، رقم الوحدة..."
+
+                        ></textarea>
+
+
+
+                    </div>
+
+
+
+
+
+                    <div class="field full">
+
+
+
+                        <label>
+
+                            ملاحظات الطلب
+
+                            <span>
+
+                                (اختياري)
+
+                            </span>
+
+                        </label>
+
+
+
+                        <textarea
+
+                            id="notes"
+
+                            placeholder="أي ملاحظات إضافية للطلب..."
+
+                        ></textarea>
+
+
+
+                    </div>
+
+
+
+
+
+                    <div class="field full">
+
+
+
+                        <button
+
+                            type="submit"
+
+                            class="submit-btn"
+
+                        >
+
+                            تأكيد الطلب
+
+                        </button>
+
+
+
+                    </div>
+
+
+
+
+
+                </form>
+
+
+
+            </section>
+
+
+
+
+
+            <!-- SUMMARY -->
+
+
+
+            <aside class="order-summary">
+
+
+
+                <h2>
+
+                    ملخص الطلب
+
+                </h2>
+
+
+
+
+
+                <div
+
+                    class="order-items"
+
+                    id="orderItems"
+
+                ></div>
+
+
+
+
+
+                <div class="summary-row">
+
+
+
+                    <span>
+
+                        المنتجات
+
+                    </span>
+
+
+
+                    <span id="subtotal">
+
+                        0 SAR
+
+                    </span>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="summary-row">
+
+
+
+                    <span>
+
+                        الشحن
+
+                    </span>
+
+
+
+                    <span>
+
+                        يُحدد لاحقًا
+
+                    </span>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="summary-row total">
+
+
+
+                    <span>
+
+                        الإجمالي
+
+                    </span>
+
+
+
+                    <span
+
+                        class="total-price"
+
+                        id="total"
+
+                    >
+
+                        0 SAR
+
+                    </span>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="payment-box">
+
+
+
+                    <strong>
+
+                        الدفع
+
+                    </strong>
+
+
+
+                    هذه تجربة شراء تجريبية — لا يتم تحصيل أي مبلغ فعلي.
+
+
+
+                </div>
+
+
+
+
+
+                <a
+
+                    href="cart.html"
+
+                    class="back-cart"
+
+                >
+
+                    تعديل السلة
+
+                </a>
+
+
+
+            </aside>
+
+
+
+
+
+        </div>
+
+
+
+    </main>
+
+
+
+
+
+    <script>
+
+
+
+        lucide.createIcons();
+
+
+
+
+
+        const CART_KEY = "sera_cart";
+
+
+
+        const ORDER_KEY = "sera_pending_order";
+
+
+
+
+
+        /* =========================
+
+           GET CART
+
+        ========================= */
+
+
+
+        function getCart() {
+
+            try {
+
+                const cart =
+                    JSON.parse(localStorage.getItem(CART_KEY)) || [];
+
+                return cart
+                    .map(item => ({
+                        ...item,
+                        price:
+                            Number(item.price) ||
+                            parseFloat(
+                                String(item.price).replace(/[^\d.]/g, "")
+                            ) ||
+                            0,
+                        quantity:
+                            Math.max(
+                                1,
+                                Math.floor(Number(item.quantity) || 1)
+                            )
+                    }))
+                    .filter(item => item.price > 0);
+
+            } catch {
+
+                return [];
+
+            }
+
+        }
+
+
+        /* =========================
+
+           RENDER ORDER
+
+        ========================= */
+
+
+
+        function renderOrder() {
+
+
+
+            const cart = getCart();
+
+
+
+            const orderItems =
+
+                document.getElementById("orderItems");
+
+
+
+
+
+            if (!cart.length) {
+
+
+
+                window.location.href = "cart.html";
+
+
+
+                return;
+
+
+
+            }
+
+
+
+
+
+            let total = 0;
+
+
+
+
+
+            orderItems.innerHTML = "";
+
+
+
+
+
+            cart.forEach(item => {
+
+
+
+                const itemTotal =
+
+                    item.price * item.quantity;
+
+
+
+                total += itemTotal;
+
+
+
+
+
+                orderItems.innerHTML += `
+
+
+
+                    <div class="order-item">
+
+
+
+                        <div class="order-image">
+
+
+
+                            <img
+
+                                src="${item.image}"
+
+                                alt="${item.name}"
+
+                            >
+
+
+
+                        </div>
+
+
+
+
+
+                        <div class="order-info">
+
+
+
+                            <div class="order-name">
+
+                                ${item.name}
+
+                            </div>
+
+
+
+                            <div class="order-quantity">
+
+                                الكمية: ${item.quantity}
+
+                            </div>
+
+
+
+                        </div>
+
+
+
+
+
+                        <div class="order-price">
+
+                            ${itemTotal} SAR
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                `;
+
+
+
+            });
+
+
+
+
+
+            document.getElementById("subtotal")
+
+                .textContent = `${total} SAR`;
+
+
+
+            document.getElementById("total")
+
+                .textContent = `${total} SAR`;
+
+
+
+        }
+
+
+
+
+
+        /* =========================
+
+           FORM
+
+        ========================= */
+
+
+
+        document
+
+            .getElementById("checkoutForm")
+
+            .addEventListener("submit", function(event) {
+
+
+
+                event.preventDefault();
+
+
+
+
+
+                const cart = getCart();
+
+
+
+
+
+                if (!cart.length) {
+
+
+
+                    window.location.href = "cart.html";
+
+
+
+                    return;
+
+
+
+                }
+
+
+
+
+
+                const order = {
+
+
+
+                    customer: {
+
+
+
+                        name:
+
+                            document
+
+                                .getElementById("fullName")
+
+                                .value
+
+                                .trim(),
+
+
+
+                        phone:
+
+                            document
+
+                                .getElementById("phone")
+
+                                .value
+
+                                .trim(),
+
+
+
+                        city:
+
+                            document
+
+                                .getElementById("city")
+
+                                .value,
+
+
+
+                        district:
+
+                            document
+
+                                .getElementById("district")
+
+                                .value
+
+                                .trim(),
+
+
+
+                        address:
+
+                            document
+
+                                .getElementById("address")
+
+                                .value
+
+                                .trim(),
+
+
+
+                        notes:
+
+                            document
+
+                                .getElementById("notes")
+
+                                .value
+
+                                .trim()
+
+
+
+                    },
+
+
+
+                    products: cart,
+
+
+
+                    createdAt:
+
+                        new Date().toISOString()
+
+
+
+                };
+
+
+
+
+
+                localStorage.setItem(
+
+                    ORDER_KEY,
+
+                    JSON.stringify(order)
+
+                );
+
+
+
+
+
+                /*
+
+                 * هنا حاليًا نوقف عند الدفع.
+
+                 * في الخطوة القادمة نربط بوابة الدفع الحقيقية.
+
+                 */
+
+
+
+                showPaymentMessage();
+
+
+
+            });
+
+
+
+
+
+        /* =========================
+
+           PAYMENT MESSAGE
+
+        ========================= */
+
+
+
+        function showPaymentMessage() {
+
+
+
+            const page =
+
+                document.getElementById("checkoutPage");
+
+
+
+
+
+            page.innerHTML = `
+
+
+
+                <div class="success">
+
+
+
+                    <div class="success-icon">
+
+
+
+                        <i data-lucide="check"></i>
+
+
+
+                    </div>
+
+
+
+
+
+                    <h2>
+
+                        تم تأكيد طلبك بنجاح
+
+                    </h2>
+
+
+
+
+
+                    <p>
+
+                        تم حفظ بيانات الطلب والشحن بنجاح.
+
+                        شكرًا لاختيارك SERA، ونراك قريبًا.
+
+                    </p>
+
+
+
+
+
+                    <div class="order-number">
+
+                        SERA / ORDER CONFIRMED
+
+                    </div>
+
+
+
+
+
+                    <a href="index.html">
+
+                        العودة للمتجر
+
+                    </a>
+
+
+
+                </div>
+
+
+
+            `;
+
+
+
+
+
+            lucide.createIcons();
+
+
+
+        }
+
+
+
+
+
+        /* =========================
+
+           START
+
+        ========================= */
+
+
+
+        renderOrder();
+
+
+
+    </script>
+
+
+
+</body>
+
+
+
+</html>
