@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SERA — تواصل معنا</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root{
+      --black:#080808;
+      --ivory:#f3eee5;
+      --muted:#9b978f;
+      --gold:#a88a52;
+      --gold-light:#c9ae72;
+      --line:rgba(243,238,229,.14);
+      --font:"Alexandria",sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      min-height:100vh;
+      background:var(--black);
+      color:var(--ivory);
+      font-family:var(--font);
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .header{
+      height:104px;
+      border-bottom:1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 7%;
+    }
+    .logo{
+      font-size:25px;
+      letter-spacing:7px;
+      font-weight:500;
+    }
+    .back{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:var(--muted);
+      font-size:12px;
+      transition:.3s;
+    }
+    .back:hover{color:var(--ivory)}
+    .page{
+      min-height:calc(100vh - 104px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:90px 7%;
+    }
+    .contact-wrap{
+      width:min(1000px,100%);
+      border-top:1px solid var(--line);
+      padding-top:70px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:90px;
+      direction:rtl;
+    }
+    .eyebrow{
+      color:var(--gold-light);
+      font-size:11px;
+      letter-spacing:3px;
+      margin-bottom:25px;
+    }
+    h1{
+      font-size:clamp(42px,6vw,78px);
+      line-height:1.15;
+      font-weight:500;
+      margin-bottom:28px;
+    }
+    h1 span{color:var(--gold-light)}
+    .intro{
+      color:var(--muted);
+      font-size:14px;
+      line-height:2;
+      max-width:470px;
+    }
+    .contact-list{
+      display:flex;
+      flex-direction:column;
+      gap:1px;
+      border-top:1px solid var(--line);
+    }
+    .contact-item{
+      min-height:105px;
+      border-bottom:1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+      transition:.3s;
+    }
+    .contact-item:hover{padding-inline:12px}
+    .contact-label{
+      color:var(--muted);
+      font-size:11px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+    }
+    .contact-value{
+      font-size:17px;
+      font-weight:400;
+    }
+    .arrow{color:var(--gold-light)}
+    .footer{
+      position:fixed;
+      bottom:24px;
+      left:7%;
+      right:7%;
+      display:flex;
+      justify-content:space-between;
+      color:#69655f;
+      font-size:10px;
+      letter-spacing:2px;
+    }
+    @media(max-width:700px){
+      .header{height:82px;padding:0 6%}
+      .logo{font-size:20px;letter-spacing:5px}
+      .page{min-height:calc(100vh - 82px);padding:55px 6% 100px;align-items:flex-start}
+      .contact-wrap{
+        grid-template-columns:1fr;
+        gap:55px;
+        padding-top:45px;
+      }
+      h1{font-size:45px}
+      .intro{font-size:12px}
+      .contact-item{min-height:88px}
+      .contact-value{font-size:14px}
+      .footer{left:6%;right:6%;bottom:18px}
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a class="back" href="index.html">
+      <i data-lucide="arrow-right" size="17"></i>
+      العودة للرئيسية
+    </a>
+    <a class="logo" href="index.html">SERA</a>
+  </header>
+
+  <main class="page">
+    <section class="contact-wrap">
+      <div>
+        <div class="eyebrow">SERA / 04</div>
+        <h1>تواصل<br><span>معنا.</span></h1>
+        <p class="intro">
+          لأن التفاصيل تبدأ من لحظة التواصل. يسعدنا أن نسمع منك
+          ونكون جزءًا من اللحظات التي تستحق أن تُحفظ.
+        </p>
+      </div>
+
+      <div class="contact-list">
+        <a class="contact-item" href="#" aria-label="Instagram">
+          <div>
+            <div class="contact-label">Instagram</div>
+            <div class="contact-value">@SERA</div>
+          </div>
+          <i class="arrow" data-lucide="arrow-up-left" size="19"></i>
+        </a>
+
+        <a class="contact-item" href="mailto:hello@sera.example" aria-label="Email">
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value">hello@sera.example</div>
+          </div>
+          <i class="arrow" data-lucide="arrow-up-left" size="19"></i>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <div class="footer">
+    <span>SERA</span>
+    <span>DETAILS YOU FEEL</span>
+  </div>
+
+  <script>
+    if (window.lucide) lucide.createIcons();
+  </script>
+</body>
+</html>
