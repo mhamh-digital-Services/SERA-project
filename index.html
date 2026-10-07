@@ -1,3621 +1,2975 @@
 <!DOCTYPE html>
 
-
-
 <html lang="ar" dir="rtl">
-
-
 
 <head>
 
-
-
     <meta charset="UTF-8">
 
-
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 
     <title>SERA — عطور تُحس</title>
 
 
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
-
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 
 
     <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 
+
     <script src="https://unpkg.com/lucide@latest"></script>
+
 
 
     <style>
 
 
+
         :root {
-
-
 
             --black: #080808;
 
-
-
             --black-soft: #101010;
-
-
 
             --ivory: #f3eee5;
 
-
-
             --muted: #9b978f;
-
-
 
             --gold: #a88a52;
 
-
-
             --gold-light: #c9ae72;
-
-
 
             --line: rgba(243,238,229,.14);
 
 
+
             --font: "Alexandria", sans-serif;
 
-
-
         }
+
 
 
         * {
 
-
-
             margin: 0;
-
-
 
             padding: 0;
 
-
-
             box-sizing: border-box;
-
-
 
             font-family: var(--font);
 
-
-
         }
+
 
 
         html {
 
-
-
             scroll-behavior: smooth;
 
-
-
         }
+
 
 
         body {
 
-
-
             background: var(--black);
-
-
 
             color: var(--ivory);
 
-
-
             font-family: var(--font);
-
-
 
             overflow-x: hidden;
 
-
-
         }
+
 
 
         a {
 
-
-
             color: inherit;
-
-
 
             text-decoration: none;
 
-
-
         }
+
 
 
         button,
 
-
-
         input,
-
-
 
         textarea,
 
-
-
         select {
 
-
-
             font-family: var(--font);
-
-
 
         }
 
 
+
         /* =========================
-
-
 
            INTRO
 
-
-
         ========================= */
+
 
 
         .preloader {
 
-
-
             position: fixed;
 
-
-
             inset: 0;
-
-
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
 
             background: #050505;
-
-
 
             z-index: 9999;
 
 
+
             display: flex;
-
-
 
             align-items: center;
 
-
-
             justify-content: center;
+
 
 
             transition:
 
-
-
                 opacity .8s ease,
-
-
 
                 visibility .8s ease;
 
-
-
         }
+
 
 
         .preloader.hide {
 
-
-
             opacity: 0;
-
-
 
             visibility: hidden;
 
-
-
         }
+
 
 
         .loader-content {
 
-
-
             width: min(500px, 80%);
-
-
 
             text-align: center;
 
-
-
         }
+
 
 
         .loader-logo {
 
-
-
             display: flex;
-
-
 
             justify-content: center;
 
-
-
             align-items: center;
-
-
 
             gap: 10px;
 
 
+
             color: var(--ivory);
-
-
 
             font-size: clamp(36px, 6vw, 64px);
 
-
-
             font-weight: 400;
-
-
 
             letter-spacing: 7px;
 
-
-
         }
+
 
 
         .loader-dot {
 
-
-
             width: 8px;
-
-
 
             height: 8px;
 
-
-
             background: var(--gold-light);
-
-
 
             border-radius: 50%;
 
-
-
         }
+
 
 
         .loader-line {
 
-
-
             width: 100%;
-
-
 
             height: 1px;
 
-
-
             background: var(--gold);
-
-
 
             margin: 25px 0 18px;
 
-
-
             transform-origin: center;
-
-
 
             animation: loadingLine 2.3s ease forwards;
 
-
-
         }
+
 
 
         .loader-text {
 
-
-
             font-size: 10px;
-
-
 
             color: var(--muted);
 
-
-
             letter-spacing: 1px;
 
-
-
         }
+
 
 
         @keyframes loadingLine {
 
-
-
             from {
-
-
 
                 transform: scaleX(0);
 
-
-
             }
+
 
 
             to {
 
-
-
                 transform: scaleX(1);
 
-
-
             }
-
-
 
         }
 
 
+
         /* =========================
 
-
-
            HEADER
-
-
 
         ========================= */
 
 
+
         .site-header {
-
-
 
             position: fixed;
 
-
-
             top: 0;
-
-
 
             right: 0;
 
-
-
             left: 0;
+
 
 
             height: 90px;
 
 
+
             display: flex;
-
-
 
             align-items: center;
 
-
-
             justify-content: space-between;
+
 
 
             padding: 0 6vw;
 
 
+
             z-index: 1000;
+
 
 
             border-bottom: 1px solid transparent;
 
 
+
             transition:
-
-
 
                 background .4s ease,
 
-
-
                 border .4s ease,
-
-
 
                 backdrop-filter .4s ease;
 
-
-
         }
+
 
 
         .site-header.scrolled {
 
-
-
             background: rgba(8,8,8,.82);
-
-
 
             backdrop-filter: blur(18px);
 
-
-
             border-color: var(--line);
 
-
-
         }
+
 
 
         .brand {
 
-
-
             font-size: 23px;
-
-
 
             font-weight: 500;
 
-
-
             letter-spacing: 5px;
 
-
-
         }
+
 
 
         .desktop-nav {
 
-
-
             display: flex;
-
-
 
             align-items: center;
 
-
-
             gap: 42px;
 
-
-
         }
+
 
 
         .desktop-nav a {
 
-
-
             position: relative;
+
 
 
             font-size: 11px;
 
-
-
             color: var(--muted);
+
 
 
             transition: color .3s ease;
 
-
-
         }
+
 
 
         .desktop-nav a::after {
 
-
-
             content: "";
+
 
 
             position: absolute;
 
-
-
             bottom: -8px;
-
-
 
             right: 0;
 
 
+
             width: 0;
 
-
-
             height: 1px;
+
 
 
             background: var(--gold-light);
 
 
+
             transition: width .3s ease;
 
-
-
         }
+
 
 
         .desktop-nav a:hover {
 
-
-
             color: var(--ivory);
 
-
-
         }
+
 
 
         .desktop-nav a:hover::after {
 
-
-
             width: 100%;
 
-
-
         }
+
 
 
         .header-actions {
 
-
-
             display: flex;
-
-
 
             align-items: center;
 
-
-
             gap: 25px;
 
-
-
         }
+
 
 
         .cart-link {
 
-
-
             display: flex;
 
-
-
             align-items: center;
-
-
 
             gap: 8px;
 
 
+
             font-size: 11px;
-
-
 
             color: var(--ivory);
 
-
-
         }
+
 
 
         .cart-count {
 
-
-
             color: var(--gold-light);
 
-
-
         }
+
 
 
         .menu-btn {
 
-
-
             display: none;
+
 
 
             border: 0;
 
-
-
             background: transparent;
-
-
 
             color: var(--ivory);
 
 
+
             cursor: pointer;
-
-
 
         }
 
 
+
         /* =========================
 
-
-
            MOBILE MENU
-
-
 
         ========================= */
 
 
+
         .mobile-menu {
-
-
 
             position: fixed;
 
-
-
             inset: 0;
+
 
 
             background: rgba(8,8,8,.98);
 
 
+
             z-index: 999;
+
 
 
             display: flex;
 
-
-
             align-items: center;
-
-
 
             justify-content: center;
 
 
+
             opacity: 0;
-
-
 
             visibility: hidden;
 
 
+
             transition: .4s ease;
 
-
-
         }
+
 
 
         .mobile-menu.open {
 
-
-
             opacity: 1;
-
-
 
             visibility: visible;
 
-
-
         }
+
 
 
         .mobile-menu nav {
 
-
-
             display: flex;
-
-
 
             flex-direction: column;
 
-
-
             align-items: center;
-
-
 
             gap: 28px;
 
-
-
         }
+
 
 
         .mobile-menu a {
 
-
-
             font-size: 18px;
 
-
-
             color: var(--ivory);
-
-
 
         }
 
 
+
         /* =========================
 
-
-
            HERO
-
-
 
         ========================= */
 
 
+
         .hero {
-
-
 
             min-height: 100vh;
 
 
+
             display: grid;
-
-
 
             grid-template-columns: 1fr 1fr;
 
 
+
             align-items: center;
+
 
 
             padding: 150px 7vw 90px;
 
 
+
             position: relative;
 
-
-
         }
+
 
 
         .hero-copy {
 
-
-
             padding-left: 5vw;
 
-
-
         }
+
 
 
         .eyebrow {
 
-
-
             color: var(--gold-light);
-
-
 
             font-size: 10px;
 
-
-
             letter-spacing: 3px;
 
-
-
             margin-bottom: 25px;
-
-
 
         }
 
 
+
         .hero h1 {
 
-
-
             margin-top: 34px;
+
 
 
             color: var(--ivory);
 
 
+
             font-family: var(--font);
+
 
 
             font-size: clamp(36px, 3.6vw, 58px);
 
 
+
             font-weight: 400;
+
 
 
             line-height: 1.55;
 
 
+
             letter-spacing: -1px;
+
 
 
             white-space: nowrap;
 
-
-
         }
+
 
 
         .hero h1 em {
 
-
-
             color: var(--gold-light);
+
 
 
             font-family: var(--font);
 
 
+
             font-style: normal;
+
 
 
             font-weight: 400;
 
-
-
         }
+
 
 
         .hero-description {
 
-
-
             max-width: 430px;
+
 
 
             margin-top: 30px;
 
 
+
             color: var(--muted);
+
 
 
             font-size: 12px;
 
 
+
             line-height: 2.2;
-
-
 
         }
 
 
+
         .hero-link {
-
-
 
             display: inline-flex;
 
-
-
             align-items: center;
 
-
-
             gap: 12px;
+
 
 
             margin-top: 38px;
 
 
+
             color: var(--ivory);
+
 
 
             font-size: 11px;
 
 
+
             border-bottom: 1px solid var(--gold);
+
 
 
             padding-bottom: 10px;
 
-
-
         }
+
 
 
         .hero-link i {
 
-
-
             width: 15px;
 
-
-
         }
+
 
 
         .hero-visual {
 
-
-
             position: relative;
+
 
 
             display: flex;
 
-
-
             justify-content: center;
 
-
-
             align-items: center;
-
-
 
         }
 
 
+
         .hero-image-frame {
 
-
-
             width: min(470px, 90%);
+
 
 
             aspect-ratio: 4 / 5;
 
 
+
             overflow: hidden;
+
 
 
             position: relative;
 
-
-
         }
+
 
 
         .hero-image-frame::after {
 
-
-
             content: "";
+
 
 
             position: absolute;
 
-
-
             inset: 0;
+
 
 
             background:
 
-
-
                 linear-gradient(
-
-
 
                     180deg,
 
-
-
                     rgba(0,0,0,.05),
-
-
 
                     rgba(0,0,0,.28)
 
-
-
                 );
-
-
 
         }
 
 
+
         .hero-image-frame img {
 
-
-
             width: 100%;
-
-
 
             height: 100%;
 
 
+
             object-fit: cover;
+
 
 
             filter: saturate(.72) contrast(1.08);
 
 
+
             transition: transform 1.2s ease;
 
-
-
         }
+
 
 
         .hero-image-frame:hover img {
 
-
-
             transform: scale(1.04);
-
-
 
         }
 
 
+
         .hero-number {
-
-
 
             position: absolute;
 
 
+
             bottom: 25px;
 
-
-
             left: 25px;
+
 
 
             z-index: 2;
 
 
+
             font-size: 10px;
-
-
 
             letter-spacing: 3px;
 
 
+
             color: var(--ivory);
-
-
 
         }
 
 
+
         /* =========================
 
-
-
            STORY
-
-
 
         ========================= */
 
 
+
         .story {
-
-
 
             padding: 150px 8vw;
 
 
+
             display: grid;
 
-
-
             grid-template-columns: .8fr 1.2fr;
+
 
 
             gap: 10vw;
 
 
+
             border-top: 1px solid var(--line);
 
-
-
         }
+
 
 
         .section-number {
 
-
-
             color: var(--gold-light);
-
-
 
             font-size: 10px;
 
-
-
             letter-spacing: 3px;
-
-
 
         }
 
 
+
         .story-title {
 
-
-
             margin-top: 25px;
+
 
 
             font-size: clamp(30px, 4vw, 55px);
 
 
+
             font-weight: 400;
+
 
 
             line-height: 1.5;
 
-
-
         }
+
 
 
         .story-copy {
 
-
-
             max-width: 600px;
 
 
+
             color: var(--muted);
+
 
 
             font-size: 13px;
 
 
+
             line-height: 2.3;
 
-
-
         }
+
 
 
         .story-copy p + p {
 
-
-
             margin-top: 30px;
 
-
-
         }
+
 
 
         /* =========================
 
-
-
            COLLECTION
-
-
 
         ========================= */
 
 
+
         .collection {
-
-
 
             padding: 120px 7vw;
 
 
+
             border-top: 1px solid var(--line);
 
-
-
         }
+
 
 
         .section-head {
 
-
-
             display: flex;
 
-
-
             justify-content: space-between;
-
-
 
             align-items: end;
 
 
+
             margin-bottom: 60px;
 
-
-
         }
+
 
 
         .section-head h2 {
 
-
-
             font-size: clamp(30px, 4vw, 55px);
-
-
 
             font-weight: 400;
 
-
-
         }
+
 
 
         .section-head p {
 
-
-
             color: var(--muted);
-
-
 
             font-size: 11px;
 
-
-
         }
+
 
 
         .product-grid {
 
-
-
             display: grid;
+
 
 
             grid-template-columns:
 
-
-
                 repeat(3, 1fr);
+
 
 
             gap: 22px;
 
-
-
         }
+
 
 
         .product-card {
 
-
-
             display: block;
+
 
 
             position: relative;
 
 
+
             cursor: pointer;
-
-
 
         }
 
 
+
         .product-image {
 
-
-
             aspect-ratio: 3 / 4;
+
 
 
             overflow: hidden;
 
 
+
             background: var(--black-soft);
-
-
 
         }
 
 
+
         .product-image img {
-
-
 
             width: 100%;
 
-
-
             height: 100%;
+
 
 
             object-fit: cover;
 
 
+
             filter: saturate(.72);
+
 
 
             transition:
 
-
-
                 transform .8s ease,
-
-
 
                 filter .8s ease;
 
-
-
         }
+
 
 
         .product-card:hover .product-image img {
 
-
-
             transform: scale(1.05);
-
-
 
             filter: saturate(.9);
 
-
-
         }
+
 
 
         .product-meta {
 
-
-
             padding-top: 18px;
+
 
 
             display: flex;
 
-
-
             justify-content: space-between;
-
-
 
             align-items: start;
 
-
-
         }
+
 
 
         .product-name {
 
-
-
             font-size: 14px;
 
-
-
             font-weight: 400;
-
-
 
         }
 
 
+
         .product-subtitle {
 
-
-
             margin-top: 7px;
+
 
 
             color: var(--muted);
 
 
+
             font-size: 10px;
 
-
-
         }
+
 
 
         .product-price {
 
-
-
             color: var(--gold-light);
+
 
 
             font-size: 11px;
 
-
-
         }
+
 
 
         /* =========================
 
-
-
            RITUAL
-
-
 
         ========================= */
 
 
+
         .ritual {
 
-
-
             min-height: 75vh;
+
 
 
             padding: 130px 8vw;
 
 
+
             display: flex;
 
-
-
             flex-direction: column;
+
 
 
             justify-content: center;
 
 
+
             border-top: 1px solid var(--line);
+
 
 
             position: relative;
 
 
+
             overflow: hidden;
-
-
 
         }
 
 
+
         .ritual::before {
 
-
-
             content: "";
+
 
 
             position: absolute;
 
 
+
             width: 500px;
 
-
-
             height: 500px;
+
 
 
             border-radius: 50%;
 
 
+
             background: rgba(142,24,40,.08);
+
 
 
             filter: blur(100px);
 
 
+
             left: -150px;
 
-
-
             top: 50%;
-
-
 
         }
 
 
+
         .ritual h2 {
 
-
-
             max-width: 900px;
+
 
 
             font-size: clamp(35px, 6vw, 80px);
 
 
+
             line-height: 1.35;
+
 
 
             font-weight: 400;
 
 
+
             position: relative;
 
-
-
         }
+
 
 
         .ritual h2 em {
 
-
-
             color: var(--gold-light);
+
 
 
             font-style: normal;
 
-
-
         }
+
 
 
         .ritual p {
 
-
-
             max-width: 550px;
+
 
 
             margin-top: 30px;
 
 
+
             color: var(--muted);
+
 
 
             font-size: 12px;
 
 
+
             line-height: 2.2;
+
 
 
             position: relative;
 
-
-
         }
+
 
 
         .ritual-link {
 
-
-
             margin-top: 40px;
+
 
 
             width: fit-content;
 
 
+
             font-size: 11px;
+
 
 
             color: var(--ivory);
 
 
+
             border-bottom: 1px solid var(--gold);
+
 
 
             padding-bottom: 10px;
 
 
+
             position: relative;
-
-
 
         }
 
 
 
-
-
         /* =========================
 
-
-
            CLOSING
-
-
 
         ========================= */
 
 
+
         .closing {
 
-
-
             min-height: 70vh;
+
 
 
             padding: 120px 7vw;
 
 
+
             display: grid;
+
 
 
             place-items: center;
 
 
+
             text-align: center;
+
 
 
             border-top: 1px solid var(--line);
 
-
-
         }
+
 
 
         .closing-inner {
 
-
-
             max-width: 850px;
-
-
 
         }
 
 
+
         .closing-small {
-
-
 
             color: var(--gold-light);
 
 
+
             font-size: 10px;
+
 
 
             letter-spacing: 4px;
 
 
+
             margin-bottom: 30px;
-
-
 
         }
 
 
+
         .closing h2 {
 
-
-
             font-size: clamp(38px, 6vw, 80px);
+
 
 
             font-weight: 400;
 
 
+
             line-height: 1.4;
 
-
-
         }
+
 
 
         .closing h2 span {
 
-
-
             color: var(--gold-light);
 
-
-
         }
+
 
 
         /* =========================
 
-
-
            FOOTER
-
-
 
         ========================= */
 
 
+
         .site-footer {
-
-
 
             border-top: 1px solid var(--line);
 
 
+
             padding: 55px 7vw 30px;
-
-
 
         }
 
 
+
         .footer-top {
-
-
 
             display: flex;
 
 
+
             justify-content: space-between;
+
 
 
             gap: 40px;
 
 
+
             padding-bottom: 50px;
 
-
-
         }
+
 
 
         .footer-brand {
 
-
-
             font-size: 25px;
+
 
 
             letter-spacing: 5px;
 
-
-
         }
+
 
 
         .footer-text {
 
-
-
             margin-top: 15px;
+
 
 
             max-width: 300px;
 
 
+
             color: var(--muted);
 
 
+
             font-size: 10px;
+
 
 
             line-height: 2;
 
-
-
         }
+
 
 
         .footer-links {
 
-
-
             display: flex;
+
 
 
             gap: 45px;
 
-
-
         }
+
 
 
         .footer-links a {
 
-
-
             color: var(--muted);
+
 
 
             font-size: 10px;
 
 
+
             transition: color .3s ease;
 
-
-
         }
+
 
 
         .footer-links a:hover {
 
-
-
             color: var(--ivory);
-
-
 
         }
 
 
+
         .footer-bottom {
 
-
-
             border-top: 1px solid var(--line);
+
 
 
             padding-top: 25px;
 
 
+
             display: flex;
+
 
 
             justify-content: space-between;
 
 
+
             color: #666;
+
 
 
             font-size: 9px;
 
-
-
         }
+
 
 
         /* =========================
 
-
-
            RESPONSIVE
 
-
-
         ========================= */
+
 
 
         @media (max-width: 900px) {
 
 
+
             .desktop-nav {
-
-
 
                 display: none;
 
-
-
             }
+
 
 
             .menu-btn {
 
-
-
                 display: block;
-
-
 
             }
 
 
+
             .hero {
 
-
-
                 grid-template-columns: 1fr;
+
 
 
                 gap: 60px;
 
 
+
                 padding-top: 140px;
 
-
-
             }
+
 
 
             .hero-copy {
 
-
-
                 padding-left: 0;
-
-
 
                 text-align: center;
 
-
-
             }
+
 
 
             .hero-description {
 
-
-
                 margin-left: auto;
-
-
 
                 margin-right: auto;
 
-
-
             }
+
 
 
             .hero h1 {
 
-
-
                 white-space: normal;
 
-
-
             }
+
 
 
             .hero-visual {
 
-
-
                 order: -1;
 
-
-
             }
+
 
 
             .story {
 
-
-
                 grid-template-columns: 1fr;
-
-
 
                 gap: 50px;
 
-
-
             }
+
 
 
             .product-grid {
 
-
-
                 grid-template-columns: 1fr 1fr;
 
-
-
             }
+
 
 
             .footer-top {
 
-
-
                 flex-direction: column;
 
-
-
             }
+
 
 
             .footer-links {
 
-
-
                 flex-wrap: wrap;
 
-
-
             }
-
-
 
         }
 
 
+
         @media (max-width: 600px) {
+
 
 
             .site-header {
 
-
-
                 height: 75px;
-
-
 
                 padding: 0 5vw;
 
-
-
             }
+
 
 
             .brand {
 
-
-
                 font-size: 19px;
 
-
-
             }
+
 
 
             .header-actions {
 
-
-
                 gap: 15px;
 
-
-
             }
+
 
 
             .hero {
 
-
-
                 padding:
-
-
 
                     120px 6vw
 
-
-
                     70px;
 
-
-
             }
+
 
 
             .hero h1 {
 
-
-
                 font-size: 36px;
-
-
 
                 line-height: 1.65;
 
-
-
             }
+
 
 
             .hero-image-frame {
 
-
-
                 width: 90%;
 
-
-
             }
+
 
 
             .story,
 
-
-
             .collection,
-
-
 
             .ritual,
 
-
-
             .closing {
-
-
 
                 padding-left: 6vw;
 
-
-
                 padding-right: 6vw;
 
-
-
             }
+
 
 
             .product-grid {
 
-
-
                 grid-template-columns: 1fr;
 
-
-
             }
+
 
 
             .section-head {
 
-
-
                 flex-direction: column;
-
-
 
                 align-items: start;
 
-
-
                 gap: 15px;
 
-
-
             }
+
 
 
             .ritual {
 
-
-
                 min-height: 65vh;
 
-
-
             }
+
 
 
             .footer-bottom {
 
-
-
                 flex-direction: column;
-
-
 
                 gap: 10px;
 
-
-
             }
 
 
+
         }
+
 
 
     
-        /* =========================
-           CONTACT
-        ========================= */
-
-        .contact {
-            min-height: 55vh;
-            padding: 120px 8vw;
-            display: flex;
-            align-items: center;
-            border-top: 1px solid var(--line);
-        }
-
-        .contact-inner {
+        .site-credit {
             width: 100%;
-            max-width: 900px;
+            text-align: center;
+            padding: 20px 20px 28px;
+            font-family: "Alexandria", sans-serif;
+            font-size: 9px;
+            letter-spacing: 1px;
+            color: #777;
+            box-sizing: border-box;
         }
 
-        .contact h2 {
-            margin-top: 25px;
-            font-size: clamp(40px, 6vw, 80px);
-            font-weight: 400;
-            line-height: 1.4;
-        }
-
-        .contact h2 em {
-            color: var(--gold-light);
-            font-style: normal;
-        }
-
-        .contact p {
-            max-width: 520px;
-            margin-top: 25px;
-            color: var(--muted);
-            font-size: 12px;
-            line-height: 2.2;
-        }
-
-        .contact-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 35px;
-            margin-top: 35px;
-        }
-
-        .contact-links a {
-            color: var(--ivory);
-            font-size: 11px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--gold);
-            transition: color .3s ease;
-        }
-
-        .contact-links a:hover {
-            color: var(--gold-light);
-        }
-
-        @media (max-width: 600px) {
-            .contact {
-                min-height: 60vh;
-                padding-left: 6vw;
-                padding-right: 6vw;
-            }
-
-            .contact-links {
-                gap: 22px;
-            }
+        .site-credit a {
+            color: #c9a85c;
+            text-decoration: none;
         }
 
 </style>
 
-
-
 </head>
+
 
 
 <body>
 
 
+
     <!-- =========================
-
-
 
          INTRO
 
-
-
     ========================= -->
+
 
 
     <div class="preloader" id="preloader">
 
 
+
         <div class="loader-content">
+
 
 
             <div class="loader-logo">
 
-
-
                 <span class="loader-dot"></span>
-
-
 
                 SERA
 
-
-
             </div>
+
 
 
             <div class="loader-line"></div>
 
 
+
             <div class="loader-text">
-
-
 
                 تفاصيل تُحسّ ولا تُنسى
 
-
-
             </div>
+
 
 
         </div>
 
 
+
     </div>
+
+
+
 
 
     <!-- =========================
 
-
-
          HEADER
 
-
-
     ========================= -->
+
 
 
     <header class="site-header" id="siteHeader">
 
 
+
         <a href="index.html" class="brand">
-
-
 
             SERA
 
-
-
         </a>
+
 
 
         <nav class="desktop-nav">
 
 
+
             <a href="#home">الرئيسية</a>
+
 
 
             <a href="#story">الحكاية</a>
 
 
+
             <a href="#collection">المجموعة</a>
+
 
 
             <a href="contact.html">تواصل معنا</a>
 
 
+
         </nav>
+
 
 
         <div class="header-actions">
 
 
+
                 <a href="cart.html" class="cart-link">
 
-
-
 <div class="header-actions">
+
 
 
     <a href="cart.html" class="cart-link">
 
 
+
         <i data-lucide="shopping-bag"></i>
+
 
 
         <span>
 
-
-
             السلة
 
-
-
         </span>
+
 
 
         <span class="cart-count">
 
-
-
             0
 
-
-
         </span>
+
 
 
     </a>
 
 
+
     <button
-
-
 
         class="menu-btn"
 
-
-
         id="menuBtn"
-
-
 
         aria-label="فتح القائمة"
 
-
-
     >
 
-
-
         <i data-lucide="menu"></i>
-
-
 
     </button>
 
 
+
 </div>
-
-
 
     </header>
 
 
+
+
+
     <!-- =========================
-
-
 
          MOBILE MENU
 
-
-
     ========================= -->
+
 
 
     <div class="mobile-menu" id="mobileMenu">
 
 
+
         <nav>
+
 
 
             <a href="#home">الرئيسية</a>
 
 
+
             <a href="#story">الحكاية</a>
+
 
 
             <a href="#collection">المجموعة</a>
 
 
-            <a href="contact.html">تواصل معنا</a>
+
+            <a href="contact.html">تواصل معنا </a>
+
 
 
         </nav>
 
 
+
     </div>
+
+
+
 
 
     <!-- =========================
 
-
-
          HERO
 
-
-
     ========================= -->
+
 
 
     <main id="home">
 
 
+
         <section class="hero">
+
 
 
             <div class="hero-copy">
 
 
+
                 <div class="eyebrow">
 
-
-
                     SERA / 01
-
-
 
                 </div>
 
 
+
                 <h1>
-
-
 
                     ليست رائحة،
 
-
-
                     <br>
-
-
 
                     <em>بل تُعطّر</em>
 
-
-
                     <br>
 
-
-
                     حضورك.
-
-
 
                 </h1>
 
 
+
                 <p class="hero-description">
-
-
 
                     عطور صُممت لتكون جزءًا من حضورك،
 
-
-
                     لا مجرد رائحة تمرّ بك.
-
-
 
                     تركيبات هادئة، عميقة،
 
-
-
                     وتترك أثرًا لا يُنسى.
 
-
-
                 </p>
+
 
 
                 <a href="#collection" class="hero-link">
 
 
+
                     اكتشف المجموعة
+
 
 
                     <i data-lucide="arrow-left"></i>
 
 
+
                 </a>
 
 
+
             </div>
+
+
+
 
 
             <div class="hero-visual">
 
 
+
                 <div class="hero-image-frame">
+
 
 
                     <img
 
-
-
                         src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=1400&q=90"
 
-
-
                         alt="SERA Perfume"
-
-
 
                     >
 
 
+
                     <div class="hero-number">
-
-
 
                         01 / 03
 
-
-
                     </div>
+
 
 
                 </div>
 
 
+
             </div>
+
 
 
         </section>
 
 
+
+
+
         <!-- =========================
-
-
 
              STORY
 
-
-
         ========================= -->
+
 
 
         <section class="story" id="story">
 
 
+
             <div>
+
 
 
                 <div class="section-number">
 
-
-
                     01 — الحكاية
-
-
 
                 </div>
 
 
+
                 <h2 class="story-title">
-
-
 
                     الرائحة
 
-
-
                     <br>
-
-
 
                     تبدأ من
 
-
-
                     <br>
 
-
-
                     الشعور.
-
-
 
                 </h2>
 
 
+
             </div>
+
 
 
             <div class="story-copy">
 
 
+
                 <p>
-
-
 
                     في SERA، نؤمن أن العطر لا يُختار فقط
 
-
-
                     بسبب رائحته، بل بسبب الإحساس الذي
-
-
 
                     يتركه خلفه.
 
-
-
                 </p>
 
 
+
                 <p>
-
-
 
                     لذلك صممنا مجموعة عطور تجمع بين
 
-
-
                     البساطة، العمق، والحضور الهادئ.
-
-
 
                     كل تركيبة لها شخصية مختلفة،
 
-
-
                     لكنها تحمل الروح نفسها.
 
-
-
                 </p>
+
 
 
                 <p>
 
-
-
                     تفاصيل صغيرة، تُصنع بعناية،
-
-
 
                     لتصبح جزءًا من ذاكرتك.
 
-
-
                 </p>
+
 
 
             </div>
 
 
+
         </section>
+
+
+
 
 
         <!-- =========================
 
-
-
              COLLECTION
 
-
-
         ========================= -->
+
 
 
         <section class="collection" id="collection">
 
 
+
             <div class="section-head">
+
 
 
                 <div>
 
 
+
                     <div class="section-number">
 
-
-
                         02 — المجموعة
-
-
 
                     </div>
 
 
+
                     <h2>
-
-
 
                         SERA
 
-
-
                     </h2>
+
 
 
                 </div>
 
 
+
                 <p>
 
-
-
                     ثلاثة عطور، ثلاث شخصيات.
-
-
 
                 </p>
 
 
+
             </div>
+
+
+
 
 
             <div class="product-grid">
 
 
+
+
+
                 <!-- PRODUCT 01 -->
+
 
 
                 <a
 
-
-
                     href="product.html?id=1"
-
-
 
                     class="product-card"
 
-
-
                 >
+
 
 
                     <div class="product-image">
 
 
+
                         <img
-
-
 
                             src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1000&q=85"
 
-
-
                             alt="SERA No.01"
-
-
 
                         >
 
 
+
                     </div>
+
 
 
                     <div class="product-meta">
 
 
+
                         <div>
+
 
 
                             <div class="product-name">
 
-
-
                                 SERA No.01
 
-
-
                             </div>
+
 
 
                             <div class="product-subtitle">
 
-
-
                                 حضور دافئ — خشبي
-
-
 
                             </div>
 
 
+
                         </div>
+
 
 
                         <div class="product-price">
 
-
-
                             320 SAR
 
-
-
                         </div>
+
 
 
                     </div>
 
 
+
                 </a>
+
+
+
 
 
                 <!-- PRODUCT 02 -->
 
 
+
                 <a
-
-
 
                     href="product.html?id=2"
 
-
-
                     class="product-card"
 
-
-
                 >
+
 
 
                     <div class="product-image">
 
 
+
                         <img
-
-
 
                             src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1000&q=85"
 
-
-
                             alt="SERA No.02"
-
-
 
                         >
 
 
+
                     </div>
+
 
 
                     <div class="product-meta">
 
 
+
                         <div>
+
 
 
                             <div class="product-name">
 
-
-
                                 SERA No.02
 
-
-
                             </div>
+
 
 
                             <div class="product-subtitle">
 
-
-
                                 هدوء عميق — مسك
-
-
 
                             </div>
 
 
+
                         </div>
+
 
 
                         <div class="product-price">
 
-
-
                             350 SAR
 
-
-
                         </div>
+
 
 
                     </div>
 
 
+
                 </a>
+
+
+
 
 
                 <!-- PRODUCT 03 -->
 
 
+
                 <a
-
-
 
                     href="product.html?id=3"
 
-
-
                     class="product-card"
 
-
-
                 >
+
 
 
                     <div class="product-image">
 
 
+
                         <img
-
-
 
                             src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=1000&q=85"
 
-
-
                             alt="SERA No.03"
-
-
 
                         >
 
 
+
                     </div>
+
 
 
                     <div class="product-meta">
 
 
+
                         <div>
+
 
 
                             <div class="product-name">
 
-
-
                                 SERA No.03
 
-
-
                             </div>
+
 
 
                             <div class="product-subtitle">
 
-
-
                                 حضور ناعم — زهري
-
-
 
                             </div>
 
 
+
                         </div>
+
 
 
                         <div class="product-price">
 
-
-
                             380 SAR
 
-
-
                         </div>
+
 
 
                     </div>
 
 
+
                 </a>
+
+
+
 
 
             </div>
 
 
+
         </section>
+
+
+
 
 
         <!-- =========================
 
-
-
              RITUAL
 
-
-
         ========================= -->
+
 
 
         <section class="ritual" id="ritual">
 
 
+
             <div class="section-number">
-
-
-
-                03 — عطور SERA
-
 
 
             </div>
 
 
+
             <h2>
-
-
 
                 لا تضع العطر.
 
-
-
                 <br>
 
-
-
                 <em>عِش أثره.</em>
-
-
 
             </h2>
 
 
+
             <p>
-
-
 
                 لحظة بسيطة قبل الخروج،
 
-
-
                 رشة على نقاط النبض،
 
-
-
                 ثم اترك العطر يقوم بالباقي.
-
-
 
             </p>
 
 
+
             <a
-
-
 
                 href="product.html"
 
-
-
                 class="ritual-link"
-
-
 
             >
 
-
-
                 اكتشف العطور
 
-
-
             </a>
+
 
 
         </section>
 
 
+
+
+
         <!-- =========================
-
-
 
              CLOSING
 
-
-
         ========================= -->
+
 
 
         <section class="closing">
 
 
+
             <div class="closing-inner">
+
 
 
                 <div class="closing-small">
 
-
-
                     SERA — DETAILS
-
-
 
                 </div>
 
 
+
                 <h2>
-
-
 
                     عطرك ليس ما
 
-
-
                     <span>يُشم.</span>
-
-
 
                     <br>
 
-
-
                     بل ما
 
-
-
                     <span>يُتذكّر.</span>
-
-
 
                 </h2>
 
 
+
             </div>
+
 
 
         </section>
 
 
+
     </main>
+
+
+
 
 
     <!-- =========================
 
-
-
          FOOTER
 
-
-
     ========================= -->
+
 
 
     <footer class="site-footer">
 
 
+
         <div class="footer-top">
+
 
 
             <div>
 
 
+
                 <div class="footer-brand">
 
-
-
                     SERA
-
-
 
                 </div>
 
 
+
                 <p class="footer-text">
-
-
 
                     عطور تُصنع للحضور،
 
-
-
                     وتبقى في الذاكرة.
-
-
 
                 </p>
 
 
+
             </div>
+
+
+
 
 
             <div class="footer-links">
 
 
+
                 <a href="#home">
-
-
 
                     الرئيسية
 
-
-
                 </a>
+
 
 
                 <a href="#collection">
 
-
-
                     المجموعة
 
-
-
                 </a>
+
 
 
                 <a href="contact.html">
 
-
-
-                    عطور SERA
-
-
-
+                  تواصل معنا  
                 </a>
+
 
 
                 <a href="product.html">
 
-
-
                     المتجر
 
-
-
                 </a>
+
 
 
             </div>
 
 
+
         </div>
+
+
+
 
 
         <div class="footer-bottom">
 
 
+
             <span>
-
-
 
                 © <span id="year"></span> SERA
 
-
-
             </span>
+
 
 
             <span>
 
-
-
                 جميع الحقوق محفوظة
 
-
-
             </span>
+
 
 
         </div>
 
 
+
     </footer>
+
+
+
 
 
     <!-- =========================
 
-
-
          JAVASCRIPT
 
-
-
     ========================= -->
+
 
 
     <script>
 
 
+
         /* =========================
-
-
 
            LUCIDE
 
-
-
         ========================= */
+
 
 
         lucide.createIcons();
 
 
+
+
+
         /* =========================
-
-
 
            INTRO
 
-
-
         ========================= */
+
 
 
         window.addEventListener("load", () => {
 
 
+
             setTimeout(() => {
+
 
 
                 const preloader =
 
-
-
                     document.getElementById("preloader");
+
 
 
                 preloader.classList.add("hide");
 
 
+
             }, 2700);
+
 
 
         });
 
 
+
+
+
         /* =========================
 
-
-
            HEADER SCROLL
-
-
 
         ========================= */
 
 
+
         const siteHeader =
 
-
-
             document.getElementById("siteHeader");
+
 
 
         window.addEventListener("scroll", () => {
 
 
+
             if (window.scrollY > 30) {
+
 
 
                 siteHeader.classList.add("scrolled");
 
 
+
             } else {
+
 
 
                 siteHeader.classList.remove("scrolled");
 
 
+
             }
+
 
 
         });
 
 
+
+
+
         /* =========================
 
-
-
            MOBILE MENU
-
-
 
         ========================= */
 
 
+
         const menuBtn =
-
-
 
             document.getElementById("menuBtn");
 
 
+
         const mobileMenu =
 
-
-
             document.getElementById("mobileMenu");
+
 
 
         menuBtn.addEventListener("click", () => {
 
 
+
             mobileMenu.classList.toggle("open");
+
 
 
         });
 
 
+
+
+
         document
-
-
 
             .querySelectorAll(".mobile-menu a")
 
-
-
             .forEach(link => {
+
 
 
                 link.addEventListener("click", () => {
 
 
+
                     mobileMenu.classList.remove("open");
+
 
 
                 });
 
 
+
             });
+
+
+
 
 
         /* =========================
 
-
-
            YEAR
-
-
 
         ========================= */
 
 
+
         document.getElementById("year").textContent =
-
-
 
             new Date().getFullYear();
 
 
+
+
+
         /*
-
-
 
          * مهم:
 
-
-
          * روابط المنتجات موجودة مباشرة في HTML:
 
-
-
          *
-
-
 
          * product.html?id=1
 
-
-
          * product.html?id=2
-
-
 
          * product.html?id=3
 
-
-
          *
-
-
 
          * لذلك لا يوجد هنا أي كود يعيد توجيه
 
-
-
          * المنتجات إلى product.html بدون id.
 
-
-
          */
+
 
 
     </script>
 
 
+
+
+    <div class="site-credit">
+        صنع بواسطة
+        <a href="https://6aa840a00a4310400017bf4e--mhamh-digital.netlify.app/" target="_blank" rel="noopener">مهمّة</a>
+    </div>
+
 </body>
-
-
 
 </html>
